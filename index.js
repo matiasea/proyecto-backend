@@ -23,7 +23,7 @@ getProducts() {
     id;
     products = [];
     static idContador = 0 */
-    class Product extends ProductManager{constructor(title, descripcion, price, thumbnail, code, stock) {
+    class Products extends ProductManager{constructor(title, descripcion, price, thumbnail, code, stock) {
       super()      
       this.title = title; 
         this.descripcion = descripcion; 
@@ -45,10 +45,39 @@ getProducts() {
     }
    */
 
-const heladera = new ProductManager () 
+const newProductManager = new ProductManager () 
 
-heladera.addProduct("Heladera", "Samsung", 1222, "imagen", "rt38", 5);
+const heladera = {
+  title : "Heladera Samsung",
+  descripcion: "365 lts - Acero Inox",
+  price: 185000,
+  thumbnail: "img",
+  code: "RT38SKF",
+  stock: 4,
+}
+
+const cocina = {
+  title : "Cocina Florencia",
+  descripcion: "Gas Envasado - Luz + Encendido Electrico",
+  price: 98000,
+  thumbnail: "img",
+  code: "5538f",
+  stock: 7,
+}
+
+const lavarropas = {
+  title : "Lavarropas Drean",
+  descripcion: "6 kg - 800rpm",
+  price: 121000,
+  thumbnail: "img",
+  code: "6.08",
+  stock: 5,
+}
+
+
+newProductManager.addProduct(heladera);
+newProductManager.addProduct(lavarropas)
 //getProducts(this.products); 
-console.log(heladera.getProducts())
+console.log(newProductManager.getProducts())
 
 
