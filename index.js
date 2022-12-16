@@ -1,83 +1,61 @@
-class ProductManager {
-  constructor() {
-    this.products = [];
-    this.product = this.product;
+class ProductManager{
+  productos;
+  static idIncrementable = 0;
+  constructor(){
+      this.productos = [];
+
   }
 
-  addProduct(product) {
-    let idEncontrado = this.products.find((product) =>
-    product.code === code);
-    if (idEncontrado) {
-        return console.log("El id ya existe")  
-  }else{
-    this.products.push(product)
-  }
-}
-
-getProducts() {
-  // retornar todos los productos
-  return this.products
-}
-}
-    /* products;
-    id;
-    products = [];
-    static idContador = 0 */
-    class Products extends ProductManager{constructor(title, descripcion, price, thumbnail, code, stock) {
-      super()      
-      this.title = title; 
-        this.descripcion = descripcion; 
-        this.price = price; 
-        this.thumbnail = thumbnail; 
-        this.code = code; 
-        this.stock = stock;
-        //this.id = Id.idContador += 1; 
-    }}
-
-    
-    
-/*     getProductById() {
-      let productoEncontrado = this.products.find((product) =>
-      product.id === id);
-      return this.products.id = productoEncontrado
-      // retornar el producto que cuente con este id
-      // pista: Utilizar find()
+  getProducts() {
+      // retornar todos los productos
+      return this.productos;
     }
-   */
 
-const newProductManager = new ProductManager () 
+  addProduct(title, descripcion, price, thumbnail, code, stock) {
+      const codeEncontrado = this.productos.find(busqueda => busqueda.code === code)
+      
+      ProductManager.idIncrementable++;
+      const producto = {
+          title,
+          descripcion,
+          price,
+          thumbnail,
+          code,
+          stock,
+          id: ProductManager.idIncrementable,
 
-const heladera = {
-  title : "Heladera Samsung",
-  descripcion: "365 lts - Acero Inox",
-  price: 185000,
-  thumbnail: "img",
-  code: "RT38SKF",
-  stock: 4,
+      }
+
+      if (codeEncontrado) {
+          return console.log("El id ya existe")  
+    }else{
+      this.productos.push(producto)
+    }
+
+  }
+
+  getProductByIde(id){
+    const idEncontrado = this.productos.find(busqueda => busqueda.id === id)
+    if(idEncontrado){
+      console.log(idEncontrado)
+    }else{
+      console.log("Not found")
+    }
+  }
+
+
+
 }
 
-const cocina = {
-  title : "Cocina Florencia",
-  descripcion: "Gas Envasado - Luz + Encendido Electrico",
-  price: 98000,
-  thumbnail: "img",
-  code: "5538f",
-  stock: 7,
-}
-
-const lavarropas = {
-  title : "Lavarropas Drean",
-  descripcion: "6 kg - 800rpm",
-  price: 121000,
-  thumbnail: "img",
-  code: "6.08",
-  stock: 5,
-}
 
 
-newProductManager.addProduct(heladera);
+const newProductManager = new ProductManager();
+newProductManager.addProduct("heladera", "365 lts - inox", 185000, "img", "rt38", 4);
+newProductManager.addProduct("cocina", "luz en horno - enc electrico", 98000, "img", "5516cl", 7);
+console.log(newProductManager.getProducts())
+/* 
 newProductManager.addProduct(lavarropas)
 //getProducts(this.products); 
 console.log(newProductManager.getProducts())
 
-
+ */
