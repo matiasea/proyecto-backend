@@ -52,6 +52,6 @@ class ProductManager{
 const newProductManager = new ProductManager();
 newProductManager.addProduct("heladera", "365 lts - inox", 185000, "img", "rt38", 4);
 newProductManager.addProduct("cocina", "luz en horno - enc electrico", 98000, "img", "5516cl", 7);
-//console.log(newProductManager.getProducts())
+console.log(newProductManager.getProducts())
 
 console.log(newProductManager.getProductById(5))
